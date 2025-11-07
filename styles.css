@@ -25,7 +25,7 @@ body::before {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100% ;
   height: calc(100vh + 200px); /* covers header + hero */
   background: url("images/Picture1.png") center top / contain no-repeat;
   z-index: -1;
@@ -33,7 +33,7 @@ body::before {
 
 
 body{
-    width: 100%;
+    width: 100% ;
     overflow-x: hidden!important;   
 }
 
@@ -150,13 +150,13 @@ nav .logoinfo p {
     .nav-links.active{
       display: flex;
       flex-direction: column;
-      width: 92%;
+      width: 95%;
       border-radius: 1rem;
       height: 15rem;
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: 0.5rem;
+      top: 0.4rem;
       z-index: 10;
       transition: all 0.3s ease-in-out;
     }
@@ -196,8 +196,10 @@ nav .logoinfo p {
   .menu-toggle.active .line:nth-child(1) {
     transform: translateY(0.8rem) rotate(45deg) !important;
     }
-
-.menu-toggle.active .line:nth-child(3) {
+  .menu-toggle.active .line:nth-child(2) {
+    opacity: 0;
+    }
+  .menu-toggle.active .line:nth-child(3) {
     transform: translateY(-0.8rem) rotate(-45deg) !important;
     }
 }
@@ -217,8 +219,10 @@ nav .logoinfo p {
     .menu-toggle.active .line:nth-child(1) {
     transform: translateY(0.5rem) rotate(45deg) !important;
     }
-
-.menu-toggle.active .line:nth-child(3) {
+    .menu-toggle.active .line:nth-child(2) {
+    opacity: 0;
+    }
+    .menu-toggle.active .line:nth-child(3) {
     transform: translateY(-0.5rem) rotate(-45deg) !important;
     }
       
@@ -500,7 +504,7 @@ nav .logoinfo p {
     flex-direction: column;
     gap: 0.2rem;
     height: auto;
-    margin: 1rem;
+    margin: 0 auto;
    }
    .who-img .Who-image{
     transform: rotate(0deg);
@@ -523,7 +527,7 @@ nav .logoinfo p {
     flex-direction: column;
     gap: 0.2rem;
     height: auto;
-    margin: 1rem;
+    margin: 0 auto;
    }
    .who-img .Who-image{
     transform: rotate(0deg);
@@ -541,6 +545,7 @@ nav .logoinfo p {
 
    .who-we-are{
     min-width: 100%;
+    margin: 0 auto;
    }
    .who-img .Who-image{
     transform: rotate(0deg);
@@ -699,10 +704,11 @@ nav .logoinfo p {
   box-shadow: 0 4px 30px rgba(245, 158, 11, 0.5);
 }
 
-.card-container h3{
+.card-container h2 {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.5rem);
 }
 .card-container .card-img{
     display: flex;
@@ -758,7 +764,7 @@ nav .logoinfo p {
 }
 
 /* Heading */
-.intro-text h3 {
+.intro-text h2 {
   color: #d97706;
   font-family: "Montserrat", sans-serif;
   width: 60%;
