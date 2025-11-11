@@ -105,10 +105,10 @@ nav .logoinfo p {
 }
 
 @media (min-width: 768px) and (max-width: 810px) {
-    .nav-links{
+    .nav-links.active{
       display: flex;
       flex-direction: column;
-      width: 90%;
+      width: 95%;
       border-radius: 1rem;
       height: 15rem;
       align-items: center;
@@ -119,13 +119,13 @@ nav .logoinfo p {
       transition: all 0.3s ease-in-out;
   }
 
-  .nav-links a:hover {
-      padding: 10px 70px;
+  .nav-links{
+      display: none;
 
   }
     .menu-toggle{
       display: flex !important;
-      width: 15%;
+      width: 13%;
       padding: 0.85rem 0.5rem;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.1);
@@ -142,6 +142,23 @@ nav .logoinfo p {
       padding: 10px;
       transition: all 0.3s ease-in-out;
       z-index: 100;
+    }
+        /* The three lines */
+  .menu-toggle .line {
+      width: 45%;
+      height: 0.18rem;
+      background-color: #733F03;
+      border-radius: 0.18rem;
+      transition: all 0.3s ease-in-out;
+  }
+  .menu-toggle.active .line:nth-child(1) {
+    transform: translateY(0.55rem) rotate(45deg) !important;
+    }
+  .menu-toggle.active .line:nth-child(2) {
+    opacity: 0;
+    }
+  .menu-toggle.active .line:nth-child(3) {
+    transform: translateY(-0.55rem) rotate(-45deg) !important;
     }
 
 }
@@ -220,7 +237,8 @@ nav .logoinfo p {
     transform: translateY(0.5rem) rotate(45deg) !important;
     }
     .menu-toggle.active .line:nth-child(2) {
-    opacity: 0;
+    /* opacity: 0; */
+    visibility: hidden;
     }
     .menu-toggle.active .line:nth-child(3) {
     transform: translateY(-0.5rem) rotate(-45deg) !important;
@@ -272,25 +290,47 @@ nav .logoinfo p {
   justify-content: space-between;
   align-items: center;
   gap: clamp(1rem, 4vw, 2rem);
-  padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 5vw, 6rem);
+  padding: clamp(0.5rem, 2vw, 1rem) clamp(0.8rem, 5vw, 6rem);
   /* height: 80vh; */
   width: 100%;
   /* flex-wrap: wrap; allows better stacking on smaller screens */
 }
 
+@media (min-width: 1024px) and (max-width: 1245px) {
+  .hero-content h1{
+    font-size: 1.7rem !important;
+   }
+
+}
 @media (max-width: 1024px){
-   .hero {
+  .hero {
        /* height: 60vh; */
    }
-   
+  .hero-content{
+    padding: 0 !important;
+   }
+  .hero-content h1{
+    font-size: 1.6rem !important;
+    min-width: 100% !important;
+  }
+@media (min-width: 821px) and (max-width: 962px){
+    .hero-content h1{
+    font-size: 1.35em !important;
+  }
 }
-@media (min-width: 768px) and (max-width: 810px) {
+ 
+}
+@media (min-width: 768px) and (max-width: 820px) {
     .hero {
        /* height: 65vh; */
     }
    .hero-content {
-    padding-top: 4rem !important;
+    padding-top: 0rem !important;
    }
+    .hero-content h1{
+    font-size: 1.3rem !important;
+   }
+
 }
 @media (max-width: 768px){
    .hero {
@@ -299,7 +339,7 @@ nav .logoinfo p {
        gap: 0.5rem;
    }
    .hero-content{
-        min-width: 90%;
+        min-width: 100%;
         text-align: center;
         margin: 0 auto;
         order: 2;
@@ -313,8 +353,36 @@ nav .logoinfo p {
     margin: 0 auto;
     order: 1;
    }
+  .hero-image{
+    min-width: 100%;
+  }
+  .cube-container .big {
+    left: -0.3rem !important;
+  }
 }
-
+@media (max-width: 480px){
+  .hero-content{
+     min-width: 100%;
+     padding: 0rem !important;
+  }
+  .hero-content h1{
+    font-size: 1.2rem !important;
+  }
+}
+@media (max-width: 380px){
+  .hero-content{
+    padding: 0rem !important;
+  }
+  .hero-content h1{
+    font-size: 1rem !important;
+  }
+  .hero-image{
+    min-width: 100%;
+  }
+  .cube-container .big {
+    left: -0.3rem !important;
+  }
+}
 
 /* Hero Image */
 .hero-image {
@@ -324,6 +392,7 @@ nav .logoinfo p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .hero-image .leaf {
@@ -338,8 +407,8 @@ nav .logoinfo p {
 }
 
 @keyframes leafSway {
-  0% { transform: rotate(-30deg); }
-  100% { transform: rotate(-15deg); }
+  0% { transform: rotate(-15deg); }
+  100% { transform: rotate(-30deg); }
 }
 
 /* Cube Container */
@@ -386,12 +455,13 @@ nav .logoinfo p {
 
 /* Hero Content */
 .hero-content {
-  width: clamp(45%, 45vw, 50%);
+  width: clamp(50%, 50vw, 60%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: clamp(1rem, 2vw, 1.5rem);
-  padding:  clamp(1rem, 3vw, 2rem);
+  /* padding:  clamp(1rem, 3vw, 2rem); */
+  margin: 0 auto;
 }
 
 
@@ -401,8 +471,8 @@ nav .logoinfo p {
   background: linear-gradient(180deg, #733F03 0%, #D97706 50%, #733F03 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: clamp(2.5rem, 4vw, 3rem);
-  font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+  line-height: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.1rem, 2vw + 1rem, 2rem);
 }
 
 .hero-content p {
@@ -440,6 +510,24 @@ nav .logoinfo p {
 /* -------------------------------------
    Who-we-are Section
 ------------------------------------- */
+.about{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1rem, 3vw, 4rem);
+    margin-top: 1rem;
+    
+}
+
+.aboutus{
+    font-family: Montserrat, sans-serif;
+    background: linear-gradient(180deg, #733F03 0%, #D97706 50%, #733F03 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(1rem, 2.5vw, 30px)
+}
+
+
 .who-we-are{
     width: 100%;
     height: auto;
@@ -447,30 +535,20 @@ nav .logoinfo p {
     justify-content: center;
     align-items: center;
     padding: clamp(1rem, 3vw, 2rem);
-    gap: clamp(1rem, 4vw, 3rem);
+    gap: clamp(1rem, 8vw, 8rem);
     
 }
+
 .who-img{
-    width: 30%;
     height: auto;
-    z-index: -1;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    
+    z-index: 10;
 }
 .who-img .Who-image{
-    width: clamp(260px, 45vw, 440px);
+    width: clamp(130px, 25vw, 300px);
     height: auto;
-    transform: rotate(-30deg);
-}
-.who-img .squares{
-    position: absolute;
-    left: -20%;
-    bottom:-30%;
-    transform: translateY(-50%) rotateY(-180deg);
-    width: clamp(100px, 20vw, 200px);
 }
 
 .who-description{
@@ -494,6 +572,10 @@ nav .logoinfo p {
     width: 100%;
     margin: 2rem auto;
    }
+    .who-paragraph{
+    padding: 1.6rem !important;
+   }
+
 }
 @media (min-width: 768px) and (max-width: 810px) {
     .who-paragraph{
@@ -505,18 +587,11 @@ nav .logoinfo p {
     gap: 0.2rem;
     height: auto;
     margin: 0 auto;
-   }
-   .who-img .Who-image{
-    transform: rotate(0deg);
    }  
-   .who-img .squares{
-    left: -100%;
-    bottom: 50%;
-   } 
     .who-description{
         width: 80%;
-        margin-top: -3rem;
    }
+
 }
 @media (max-width: 768px){
     .who-paragraph{
@@ -525,42 +600,37 @@ nav .logoinfo p {
    }
    .who-we-are{
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0.8rem;
     height: auto;
     margin: 0 auto;
    }
-   .who-img .Who-image{
-    transform: rotate(0deg);
-   }  
-   .who-img .squares{
-    left: -100%;
-    bottom: 50%;
-   } 
    .who-description{
     width: 80%;
-    margin-top: -3rem;
    }
+    .who-description img{
+    left:85% !important;
+   }
+    .who-paragraph{
+    padding: 1rem !important;
+   }
+
 }
 @media (max-width: 480px){
 
    .who-we-are{
     min-width: 100%;
     margin: 0 auto;
+   
    }
-   .who-img .Who-image{
-    transform: rotate(0deg);
-   }  
-   .who-img .squares{
-    left: -100%;
-    bottom: 70%;
-   } 
    .who-description{
-    width: 90%;
-    margin-top: -2rem;
+    width: 100%;
    }
    .who-description img{
-    left:70% !important;
-    top:-10% !important;
+    left:78% !important;
+    top:-20% !important;
+   }
+   .who-paragraph{
+    padding: 1.6rem !important;
    }
 
 }
@@ -767,7 +837,7 @@ nav .logoinfo p {
 .intro-text h2 {
   color: #d97706;
   font-family: "Montserrat", sans-serif;
-  width: 60%;
+  width: 70%;
   line-height: clamp(1.8rem, 3vw, 2.75rem);
   font-size: clamp(1rem, 2vw, 1.5rem);
 }
@@ -799,15 +869,23 @@ nav .logoinfo p {
 
 @media (max-width: 1024px){
    .founder-img {
-     top: 1.3rem;
-     right: 11rem;
+     top: 1.13rem;
+     right: 10rem;
    }
 }
 @media (max-width: 768px){
     .founder-img {
-     top: 1rem;
-     right: 8rem;
+     top: 0.6rem;
+     right: 6rem;
    }
+    .intro-text{
+        min-width: 90%;
+    }
+    .intro-text h2{
+      width: 100%;
+      margin-top: 60px;
+      font-size: 14px;
+    }
 }
 @media (min-width: 768px) and (max-width: 810px){
     .founder-img {
@@ -817,8 +895,14 @@ nav .logoinfo p {
 }
 @media (max-width: 480px){
     .intro-text{
-        min-width: 95%;
+        min-width: 100%;
     }
+    .intro-text h2{
+      width: 100%;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
      .founder-img {
      top: 0.7rem;
      right: 3rem;
